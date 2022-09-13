@@ -38,7 +38,6 @@ while(option != 6){
         case 3:
             goku.energia += Math.random() * 10;
             break;
-    
         case 4:
             goku.energia -= Math.random() * 100;
             if(goku.energia<0){
