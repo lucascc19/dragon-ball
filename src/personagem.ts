@@ -1,5 +1,5 @@
 //nome, energia, vida, ataque, defesa
-export class Personagem {
+export default class Personagem {
     constructor(
         public nome: string, 
         public energia: number, 
@@ -8,3 +8,4 @@ export class Personagem {
         public defesa: number
         ){}
 }
+

@@ -1,5 +1,5 @@
 //nome, energia, vida, ataque, defesa
-export class Personagem {
+export default class Personagem {
     constructor(nome, energia, vida, ataque, defesa) {
         this.nome = nome;
         this.energia = energia;
