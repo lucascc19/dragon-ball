@@ -76,7 +76,7 @@ while(option != 6){
             console.log("Defesa: ", person.defesa.toFixed(1));
             break;
         case 4:
-            person.energia -= Math.random() * 100;
+            person.energia -= Math.random() * 10;
             if(person.energia<0){
                 console.log('Ops! Você morreu!');
             }
