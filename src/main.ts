@@ -6,7 +6,7 @@ let person: Personagem = new Personagem("Son Goku", 60, 100, 98, 97);
 let teclado = prompt();
 let option: number = 0;
 
-while(option != 6 || person.isDead()){
+while(option != 6){
     console.log('======= Personagem ========');
     console.log('|1. Treinar ataque');
     console.log('|2. Treinar defesa');
@@ -31,8 +31,7 @@ while(option != 6 || person.isDead()){
             console.log(person.status());
             break;
         case 4:
-            let rest: number = person.batalhar();
-            console.log(`Energia perdida ${rest}`);
+            person.batalhar();
             console.log(person.status());
             break;
         case 5:
@@ -41,4 +40,3 @@ while(option != 6 || person.isDead()){
             break;
     }
 }
-console.log('Ops! Morreu!');

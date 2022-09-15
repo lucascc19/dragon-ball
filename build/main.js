@@ -16,21 +16,21 @@ while (option != 6) {
     switch (option) {
         case 1:
             person.treinarAtaque();
-            person.status();
+            console.log(person.status());
             break;
         case 2:
             person.treinarDefesa();
-            person.status();
+            console.log(person.status());
         case 3:
             person.descansar();
-            person.status();
+            console.log(person.status());
             break;
         case 4:
             person.batalhar();
-            person.status();
+            console.log(person.status());
             break;
         case 5:
-            person.status();
+            console.log(person.status());
         default:
             break;
     }

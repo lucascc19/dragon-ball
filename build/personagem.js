@@ -8,27 +8,24 @@ export default class Personagem {
         this.defesa = defesa;
     }
     status() {
-        console.log("--- Guerreiro ---");
-        console.log("Nome: ", this.nome);
-        console.log("Energia: ", this.energia.toFixed(1));
-        console.log("Ataque: ", this.ataque.toFixed(1));
-        console.log("Defesa: ", this.defesa.toFixed(1));
+        return ("-- Guerreiro -- \n" +
+            "Nome: " +
+            this.nome +
+            ("\nEnergia: " + this.energia.toFixed(1)) +
+            ("\nAtaque: " + this.ataque.toFixed(1)) +
+            ("\nDefesa: " + this.defesa.toFixed(1)));
     }
     treinarAtaque() {
         this.ataque += Math.random() * 7;
         this.energia -= Math.random() * 10;
-        this.isDead();
-        if (this.defesa > 100) {
-            this.defesa = 0;
-        }
+        this.verificaDefesa();
+        if (this.ataque > 100)
+            this.ataque = 100;
     }
     treinarDefesa() {
         this.defesa += Math.random() * 5;
         this.energia -= Math.random() * 10;
-        this.isDead();
-        if (this.defesa > 100) {
-            this.defesa = 0;
-        }
+        this.verificaDefesa();
     }
     descansar() {
         this.energia += Math.random() * 10;
@@ -36,13 +33,19 @@ export default class Personagem {
             this.energia = 100;
         }
     }
+    verificaDefesa() {
+        if (this.defesa > 100) {
+            this.defesa = 100;
+        }
+    }
     batalhar() {
-        this.energia -= Math.random() * 100;
+        this.energia -= Math.random() * 10;
         this.isDead();
+        return this.energia;
     }
     isDead() {
         if (this.energia < 0) {
-            console.log('Ops! Você morreu!');
+            console.log('Ops! Morreu!');
         }
     }
 }
