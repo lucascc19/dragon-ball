@@ -2,19 +2,24 @@ import prompt from "prompt-sync";
 
 //nome, energia, vida, ataque, defesa
 class Personagem {
-    constructor(
-        public nome: string, 
-        public energia: number, 
-        public vida: number, 
-        public ataque: number, 
-        public defesa: number
-        ){}
+    nome: string = ""; 
+    energia: number = 0; 
+    vida: number = 0; 
+    ataque: number = 0; 
+    defesa: number = 0;
 }
 
-let person: Personagem = new Personagem("Son Goku", 100, 100, 98, 97);
+let person: Personagem = new Personagem();
+
+person.nome = "Son Goku";
+person.ataque = 98;
+person.defesa = 97;
+person.energia = 95;
+person.vida = 100;
 
 let teclado = prompt();
 let option: number = 0;
+
 while(option != 6){
     console.log('======= Personagem ========');
     console.log('|1. Treinar ataque');
@@ -30,12 +35,12 @@ while(option != 6){
     switch (option){
         case 1:
             person.ataque += Math.random() * 7;
-            person.energia += Math.random() * 10;
+            person.energia -= Math.random() * 10;
             if(person.energia < 0){
                 console.log('Ops! Você morreu!');
             }else{
-                if(person.ataque > 100){
-                    person.ataque = 100;
+                if(person.defesa > 100){
+                    person.defesa = 100;
                 }
             }
             console.log("--- Guerreiro ---");
@@ -46,7 +51,7 @@ while(option != 6){
             break;
         case 2:
             person.defesa += Math.random() * 5;
-            person.energia += Math.random() * 10;
+            person.energia -= Math.random() * 10;
             if(person.energia < 0){
                 console.log('Ops! Você morreu!');
             }else{
@@ -71,7 +76,7 @@ while(option != 6){
             console.log("Defesa: ", person.defesa.toFixed(1));
             break;
         case 4:
-            person.energia -= Math.random() * 10;
+            person.energia -= Math.random() * 100;
             if(person.energia<0){
                 console.log('Ops! Você morreu!');
             }
