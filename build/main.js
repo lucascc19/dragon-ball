@@ -1,6 +1,6 @@
 import Personagem from "./personagem.js";
 import prompt from "prompt-sync";
-let person = new Personagem("Son Goku", 60, 100, 98, 97);
+let guerreiro = new Personagem("Son Goku", 60, 100, 98, 97);
 let teclado = prompt();
 let option = 0;
 while (option != 6) {
@@ -15,22 +15,22 @@ while (option != 6) {
     option = +teclado('Escolha uma ação: ');
     switch (option) {
         case 1:
-            person.treinarAtaque();
-            console.log(person.status());
+            guerreiro.treinarAtaque();
+            console.log(guerreiro.status());
             break;
         case 2:
-            person.treinarDefesa();
-            console.log(person.status());
+            guerreiro.treinarDefesa();
+            console.log(guerreiro.status());
         case 3:
-            person.descansar();
-            console.log(person.status());
+            guerreiro.descansar();
+            console.log(guerreiro.status());
             break;
         case 4:
-            person.batalhar();
-            console.log(person.status());
+            guerreiro.batalhar();
+            console.log(guerreiro.status());
             break;
         case 5:
-            console.log(person.status());
+            console.log(guerreiro.status());
         default:
             break;
     }
