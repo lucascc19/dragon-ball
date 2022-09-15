@@ -8,18 +8,20 @@ export default class Personagem {
         public defesa: number    
     ) {}
 
-    status(): void {
-        console.log("--- Guerreiro ---");
-            console.log("Nome: ", this.nome);
-            console.log("Energia: ", this.energia.toFixed(1));
-            console.log("Ataque: ", this.ataque.toFixed(1));
-            console.log("Defesa: ", this.defesa.toFixed(1));
+    status(): string {
+        return (
+            "Guerreiro: \n" +
+            "Nome: " +
+            this.nome +
+            ("\nEnergia: " + this.energia.toFixed(1)) +
+            ("\nDefesa: " + this.ataque.toFixed(1)) +   
+            ("\nAtaque: " + this.defesa.toFixed(1))
+        );
     }
     
     treinarAtaque(): void {
         this.ataque += Math.random() * 7;
         this.energia -= Math.random() * 10;
-        this.isDead();
         if(this.defesa > 100){
             this.defesa = 0;
         } 
@@ -28,7 +30,6 @@ export default class Personagem {
     treinarDefesa(): void {
         this.defesa += Math.random() * 5;
         this.energia -= Math.random() * 10;
-        this.isDead();
         if(this.defesa > 100){
             this.defesa = 0;
         }
@@ -41,14 +42,17 @@ export default class Personagem {
         }
     }
 
-    batalhar(): void {
-        this.energia -= Math.random() * 100;
-        this.isDead();
+    batalhar(): number {
+        let desgaste: number = Math.random() * 100; 
+        this.energia -= desgaste;
+        return desgaste;
     }
 
-    isDead(): void {
+    isDead(): boolean {
         if(this.energia < 0){
-            console.log('Ops! Você morreu!');
+            return true;
+        }else {
+            return false;
         }
     }
 }
