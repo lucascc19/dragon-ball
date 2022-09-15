@@ -49,11 +49,11 @@ export default class Personagem {
     
     batalhar(): number {
         this.energia -= Math.random() * 10;
-        this.isDead();
+        this.guerreiroMorto();
         return this.energia;
     }
 
-    isDead(): void {
+    guerreiroMorto(): void {
         if(this.energia < 0){
             console.log('Ops! Morreu!');
         }
