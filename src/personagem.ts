@@ -39,7 +39,7 @@ while(option != 6){
                 console.log('Ops! Você morreu!');
             }else{
                 if(person.defesa > 100){
-                    person.defesa = 100;
+                    person.defesa = 0;
                 }
             }
             console.log("--- Guerreiro ---");
@@ -55,7 +55,7 @@ while(option != 6){
                 console.log('Ops! Você morreu!');
             }else{
                 if(person.defesa > 100){
-                    person.defesa = 100;
+                    person.defesa = 0;
                 }
             }
             console.log("--- Guerreiro ---");
@@ -76,7 +76,7 @@ while(option != 6){
             break;
         case 4:
             person.energia -= Math.random() * 10;
-            if(person.energia<0){
+            if(person.energia < 0){
                 console.log('Ops! Você morreu!');
             }
             console.log("--- Guerreiro ---");
