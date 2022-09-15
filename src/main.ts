@@ -1,4 +1,4 @@
-import Personagem from "./personagem";
+import Personagem from "./personagem.js";
 import prompt from "prompt-sync";
 
 let person: Personagem = new Personagem("Son Goku", 60, 100, 98, 97);

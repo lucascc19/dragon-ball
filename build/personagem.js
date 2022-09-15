@@ -7,44 +7,42 @@ export default class Personagem {
         this.ataque = ataque;
         this.defesa = defesa;
     }
-}
-<<<<<<< HEAD
-let goku = new Personagem("Son Goku", 100, 100, 98, 97);
-let teclado = prompt();
-let option = 0;
-while (option != 6) {
-    console.log('======= Personagem ========');
-    console.log('|1. Treinar ataque');
-    console.log('|2. Treinar defesa');
-    console.log('|3. Descansar');
-    console.log('|4. Entrar em batalha');
-    console.log('|5. Imprimir atributos');
-    console.log('|6. Sair');
-    console.log('===========================');
-    option = +teclado('Escolha uma ação: ');
-    switch (option) {
-        case 1:
-            goku.ataque += Math.random() * 7;
-            goku.energia += Math.random() * 10;
-            break;
-        case 2:
-            goku.defesa += Math.random() * 5;
-            goku.energia += Math.random() * 10;
-        case 3:
-            goku.energia += Math.random() * 10;
-            break;
-        case 4:
-            goku.energia -= Math.random() * 100;
-            if (goku.energia < 0) {
-                console.log('Ops! Você morreu!');
-            }
-            break;
-        case 5:
-            console.log(goku);
-            break;
-        default:
-            break;
+    status() {
+        console.log("--- Guerreiro ---");
+        console.log("Nome: ", this.nome);
+        console.log("Energia: ", this.energia.toFixed(1));
+        console.log("Ataque: ", this.ataque.toFixed(1));
+        console.log("Defesa: ", this.defesa.toFixed(1));
+    }
+    treinarAtaque() {
+        this.ataque += Math.random() * 7;
+        this.energia -= Math.random() * 10;
+        this.isDead();
+        if (this.defesa > 100) {
+            this.defesa = 0;
+        }
+    }
+    treinarDefesa() {
+        this.defesa += Math.random() * 5;
+        this.energia -= Math.random() * 10;
+        this.isDead();
+        if (this.defesa > 100) {
+            this.defesa = 0;
+        }
+    }
+    descansar() {
+        this.energia += Math.random() * 10;
+        if (this.energia > 100) {
+            this.energia = 100;
+        }
+    }
+    batalhar() {
+        this.energia -= Math.random() * 100;
+        this.isDead();
+    }
+    isDead() {
+        if (this.energia < 0) {
+            console.log('Ops! Você morreu!');
+        }
     }
 }
-=======
->>>>>>> delta

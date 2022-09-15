@@ -1,6 +1,6 @@
 import Personagem from "./personagem.js";
 import prompt from "prompt-sync";
-let person = new Personagem("Son Goku", 100, 100, 98, 97);
+let person = new Personagem("Son Goku", 60, 100, 98, 97);
 let teclado = prompt();
 let option = 0;
 while (option != 6) {
@@ -15,67 +15,22 @@ while (option != 6) {
     option = +teclado('Escolha uma ação: ');
     switch (option) {
         case 1:
-            person.ataque += Math.random() * 7;
-            person.energia += Math.random() * 10;
-            if (person.energia < 0) {
-                console.log('Ops! Você morreu!');
-            }
-            else {
-                if (person.ataque > 100) {
-                    person.ataque = 100;
-                }
-            }
-            console.log("--- Guerreiro ---");
-            console.log("Nome: ", person.nome);
-            console.log("Energia: ", person.energia.toFixed(1));
-            console.log("Ataque: ", person.ataque.toFixed(1));
-            console.log("Defesa: ", person.defesa.toFixed(1));
+            person.treinarAtaque();
+            person.status();
             break;
         case 2:
-            person.defesa += Math.random() * 5;
-            person.energia += Math.random() * 10;
-            if (person.energia < 0) {
-                console.log('Ops! Você morreu!');
-            }
-            else {
-                if (person.defesa > 100) {
-                    person.defesa = 100;
-                }
-            }
-            console.log("--- Guerreiro ---");
-            console.log("Nome: ", person.nome);
-            console.log("Energia: ", person.energia.toFixed(1));
-            console.log("Ataque: ", person.ataque.toFixed(1));
-            console.log("Defesa: ", person.defesa.toFixed(1));
+            person.treinarDefesa();
+            person.status();
         case 3:
-            person.energia += Math.random() * 10;
-            if (person.energia > 100) {
-                person.energia = 100;
-            }
-            console.log("--- Guerreiro ---");
-            console.log("Nome: ", person.nome);
-            console.log("Energia: ", person.energia.toFixed(1));
-            console.log("Ataque: ", person.ataque.toFixed(1));
-            console.log("Defesa: ", person.defesa.toFixed(1));
+            person.descansar();
+            person.status();
             break;
         case 4:
-            person.energia -= Math.random() * 10;
-            if (person.energia < 0) {
-                console.log('Ops! Você morreu!');
-            }
-            console.log("--- Guerreiro ---");
-            console.log("Nome: ", person.nome);
-            console.log("Energia: ", person.energia.toFixed(1));
-            console.log("Ataque: ", person.ataque.toFixed(1));
-            console.log("Defesa: ", person.defesa.toFixed(1));
+            person.batalhar();
+            person.status();
             break;
         case 5:
-            console.log("--- Guerreiro ---");
-            console.log("Nome: ", person.nome);
-            console.log("Energia: ", person.energia.toFixed(1));
-            console.log("Ataque: ", person.ataque.toFixed(1));
-            console.log("Defesa: ", person.defesa.toFixed(1));
-            break;
+            person.status();
         default:
             break;
     }
