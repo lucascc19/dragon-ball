@@ -39,7 +39,11 @@ while(option != 6){
                 console.log('Ops! Você morreu!');
             }else{
                 if(person.defesa > 100){
-                    person.defesa = 0;
+                    person.defesa = 100;
+                }else{
+                    if(person.ataque > 100){
+                        person.ataque = 100;
+                    }
                 }
             }
             console.log("--- Guerreiro ---");
@@ -55,7 +59,7 @@ while(option != 6){
                 console.log('Ops! Você morreu!');
             }else{
                 if(person.defesa > 100){
-                    person.defesa = 0;
+                    person.defesa = 100;
                 }
             }
             console.log("--- Guerreiro ---");
