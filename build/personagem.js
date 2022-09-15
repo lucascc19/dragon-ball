@@ -1,6 +1,5 @@
-import prompt from "prompt-sync";
 //nome, energia, vida, ataque, defesa
-class Personagem {
+export default class Personagem {
     constructor(nome, energia, vida, ataque, defesa) {
         this.nome = nome;
         this.energia = energia;
@@ -9,6 +8,7 @@ class Personagem {
         this.defesa = defesa;
     }
 }
+<<<<<<< HEAD
 let goku = new Personagem("Son Goku", 100, 100, 98, 97);
 let teclado = prompt();
 let option = 0;
@@ -46,3 +46,5 @@ while (option != 6) {
             break;
     }
 }
+=======
+>>>>>>> delta
