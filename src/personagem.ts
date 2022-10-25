@@ -58,3 +58,4 @@ export default class Personagem {
             console.log('Ops! Morreu!');
         }
     }
+}
