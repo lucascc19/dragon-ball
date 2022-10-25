@@ -1,34 +1,59 @@
-import prompt from "prompt-sync";
-
 //nome, energia, vida, ataque, defesa
-class Personagem {
-    nome: string = ""; 
-    energia: number = 0; 
-    vida: number = 0; 
-    ataque: number = 0; 
-    defesa: number = 0;
-}
+export default class Personagem {
+    constructor(
+        public nome: string,
+        public energia: number,
+        public vida: number,
+        public ataque: number,
+        public defesa: number    
+    ) {}
 
-let person: Personagem = new Personagem();
+    status(): string {
+        return (
+            "-- Guerreiro -- \n" +
+            "Nome: " +
+            this.nome +
+            ("\nEnergia: " + this.energia.toFixed(1)) +
+            ("\nAtaque: " + this.ataque.toFixed(1)) +   
+            ("\nDefesa: " + this.defesa.toFixed(1))
+        );
+    }
+    
+    treinarAtaque(): void {
+        this.ataque += Math.random() * 7;
+        this.energia -= Math.random() * 10;
+        this.verificaDefesa();
+        if(this.ataque > 100)
+            this.ataque = 100;
+    }
 
-person.nome = "Son Goku";
-person.ataque = 98;
-person.defesa = 97;
-person.energia = 95;
-person.vida = 100;
+    treinarDefesa(): void {
+        this.defesa += Math.random() * 5;
+        this.energia -= Math.random() * 10;
+        this.verificaDefesa();
+    }
 
-let teclado = prompt();
-let option: number = 0;
-while(option != 6){
-    console.log('======= Personagem ========');
-    console.log('|1. Treinar ataque');
-    console.log('|2. Treinar defesa');
-    console.log('|3. Descansar');
-    console.log('|4. Entrar em batalha');
-    console.log('|5. Imprimir atributos');
-    console.log('|6. Sair');
-    console.log('===========================');
+    
+    descansar(): void {
+        this.energia += Math.random() * 10;
+        if(this.energia > 100){
+            this.energia = 100;
+        }
+    }
+    
+    verificaDefesa(): void {
+        if(this.defesa > 100){
+            this.defesa = 100;
+        }
+    }
+    
+    batalhar(): number {
+        this.energia -= Math.random() * 10;
+        this.guerreiroMorto();
+        return this.energia;
+    }
 
+<<<<<<< HEAD
     option = +teclado('Escolha uma ação: ');
 
     switch (option){
@@ -98,5 +123,11 @@ while(option != 6){
             break;
         default:
             break;
+=======
+    guerreiroMorto(): void {
+        if(this.energia < 0){
+            console.log('Ops! Morreu!');
+        }
+>>>>>>> beta
     }
 }
