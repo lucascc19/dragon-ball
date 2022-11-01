@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import Personagem from "./personagem.js";
 import prompt from "prompt-sync";
 
@@ -42,4 +40,3 @@ while(option != 6){
             break;
     }
 }
->>>>>>> beta

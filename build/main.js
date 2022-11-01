@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-"use strict";
-=======
 import Personagem from "./personagem.js";
 import prompt from "prompt-sync";
 let guerreiro = new Personagem("Son Goku", 60, 100, 98, 97);
@@ -38,4 +35,3 @@ while (option != 6) {
             break;
     }
 }
->>>>>>> beta
